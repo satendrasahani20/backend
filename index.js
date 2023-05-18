@@ -7,5 +7,5 @@ res.send({
 })    
 })
 app.listen(8000,()=>{
-    console.log("working",8000)
+    console.log("workings",8000)
 })
