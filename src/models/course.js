@@ -1,4 +1,4 @@
-import mongoose from "course";
+const mongoose = require("mongoose")
 const moduleSchema = new mongoose.Schema({
     name: {
         type: String,
