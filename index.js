@@ -20,7 +20,7 @@ app.use(express.json())
 
 app.use("/", byPassRoute)
 app.get("/", (req,res)=>{
-    res.status(401).json({
+    res.status(200).json({
         message:"URl not found"
     })
 })
