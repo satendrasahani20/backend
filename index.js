@@ -19,6 +19,11 @@ app.use(expressValidator())
 app.use(express.json())
 
 app.use("/", byPassRoute)
+app.get("/", (req,res)=>{
+    res.status(401).json({
+        message:"URl not found"
+    })
+})
 app.use(jwtAuth)
 app.use("/student", studentRoute)
 app.use("/admin", adminRoute)
