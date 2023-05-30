@@ -20,7 +20,7 @@ export const login = async (req, res) => {
         }
 
     } catch (err) {
-
+        console.log("err/login",err.message)
         res.status(400).send({ "error is": err.message })
     }
 }
