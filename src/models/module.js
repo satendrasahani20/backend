@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose from "mongoose"
 const moduleSchema = new mongoose.Schema({
     courseId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -27,4 +27,4 @@ const moduleSchema = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model("module", moduleSchema)
+export default mongoose.model("module", moduleSchema)

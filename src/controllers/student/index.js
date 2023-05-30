@@ -1,6 +1,5 @@
-const User = require("../../models/users")
-
-exports.getCourse = async (req, res) => {
+import User from "../../models/users.js"
+export const getCourse = async (req, res) => {
     try {
         let result=await User.find()
         res.status(200).send({ "msg": "I am users",data:result })

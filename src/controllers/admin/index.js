@@ -1,7 +1,6 @@
-const jwt = require("jsonwebtoken")
-const course = require("../../models/course")
-const Module = require("../../models/module")
-exports.getCourse = async (req, res) => {
+import course from "../../models/course.js"
+import Module from "../../models/module.js"
+export const getCourse = async (req, res) => {
     try {
         result = await course.aggregate([
             {
@@ -81,7 +80,7 @@ exports.getCourse = async (req, res) => {
 }
 
 
-exports.saveCourse = async (req, res) => {
+export const saveCourse = async (req, res) => {
     try {
         const checkExists = await course.findOne({ name: req.body.name })
         if (checkExists) {
@@ -95,7 +94,7 @@ exports.saveCourse = async (req, res) => {
 }
 
 
-exports.updateCourse = async (req, res) => {
+export const updateCourse = async (req, res) => {
     try {
         console.log(req.body)
         result = await course.findByIdAndUpdate(req.body._id, req.body)
@@ -106,7 +105,7 @@ exports.updateCourse = async (req, res) => {
     }
 }
 
-exports.deleteCourse=async (req,res)=>{
+export const deleteCourse=async (req,res)=>{
     try{
         result = await course.findByIdAndDelete(req.query.id)
         return res.status(200).json({ message: "Update Course Successfully" });
@@ -114,8 +113,7 @@ exports.deleteCourse=async (req,res)=>{
         res.status(400).send({ "error is": err.message })
     }
 }
-
-exports.getModule=async(req,res)=>{
+export const getModule=async(req,res)=>{
     try {
         result = await Module.find({ courseId: req.query.id })
         return res.status(200).json({ message: "Get Module Successfully" ,data:result});

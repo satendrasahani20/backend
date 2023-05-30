@@ -1,7 +1,7 @@
-const jwt = require("jsonwebtoken")
-const users = require("../../models/users")
-const { userNotRegister, notMatchPassword, loginSuccess } = require("../../utils/Response")
-exports.login = async (req, res) => {
+import jwt from "jsonwebtoken";
+import users from "../../models/users.js"
+import { userNotRegister, notMatchPassword, loginSuccess} from "../../utils/response.js"
+export const login = async (req, res) => {
     try {
         const data = await users.findOne({ email: req.body.email });
         if (!data) {
@@ -15,7 +15,7 @@ exports.login = async (req, res) => {
                 name:data.name,
                 image:data.image
             }
-             token = jwt.sign(tempObj, process.env.JWT_SECRET_KEY, { expiresIn: process.env.JWT_EXPIRE })
+             const token = jwt.sign(tempObj, process.env.JWT_SECRET_KEY, { expiresIn: process.env.JWT_EXPIRE })
             return loginSuccess(res,"Login Success",tempObj,token)
         }
 

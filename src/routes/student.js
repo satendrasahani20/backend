@@ -1,8 +1,8 @@
-const { getCourse} = require('../controllers/student')
+import {getCourse} from "../controllers/student/index.js"
 // const { registerValidator } = require('../validator/index')
-const express = require("express")
-router = express.Router();
+import express from "express"
+const router = express.Router();
 
 
 router.get('/', getCourse)
-module.exports = router
+export default router;
