@@ -1,7 +1,7 @@
 // const jwt = require("jsonwebtoken");
 import jwt from "jsonwebtoken";
 // const { notValidToken,unAuthourized } = require("../utils/Response");
-import  { notValidToken,unAuthourized } from "../utils/Response.js"
+import  { notValidToken,unAuthourized } from "../utils/response.js"
 export const jwtAuth = async (req, res, next) => {
     const token=req.headers["authorization"];
     if(!token){
