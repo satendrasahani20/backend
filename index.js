@@ -35,7 +35,7 @@ app.use(express.json())
 
 app.use("/", byPassRoute)
 app.get("/", (req,res)=>{
-    console.log("proce",process.env.PORT)
+    console.log("proce",process.env.JWT_SECRET_KEY)
     res.status(200).json({
         message:"URl not found"
     })
