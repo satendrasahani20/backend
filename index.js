@@ -1,6 +1,6 @@
 require("dotenv").config({ path: './.env' })
 require("./src/db/conn.js")
-const port = process.env.PORT || 9000
+const port = process.env.PORT || 4000
 const express = require("express")
 const app = express();
 const studentRoute = require('./src/routes/student')
