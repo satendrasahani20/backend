@@ -2,7 +2,7 @@ import course from "../../models/course.js"
 import Module from "../../models/module.js"
 export const getCourse = async (req, res) => {
     try {
-        result = await course.aggregate([
+       let result = await course.aggregate([
             {
                 $lookup: {
                     from: "modules",
@@ -86,7 +86,7 @@ export const saveCourse = async (req, res) => {
         if (checkExists) {
             return res.status(403).json({ message: "Course Already Exists" });
         }
-        result = await course.create(req.body)
+        const result = await course.create(req.body)
         res.status(200).json({ data: result })
     } catch (err) {
         res.status(400).send({ "error is": err.message })
@@ -96,8 +96,7 @@ export const saveCourse = async (req, res) => {
 
 export const updateCourse = async (req, res) => {
     try {
-        console.log(req.body)
-        result = await course.findByIdAndUpdate(req.body._id, req.body)
+        const result = await course.findByIdAndUpdate(req.body._id, req.body)
          return res.status(200).json({ message: "Update Course Successfully" });
       
     } catch (err) {
@@ -107,7 +106,7 @@ export const updateCourse = async (req, res) => {
 
 export const deleteCourse=async (req,res)=>{
     try{
-        result = await course.findByIdAndDelete(req.query.id)
+        const  result = await course.findByIdAndDelete(req.query.id)
         return res.status(200).json({ message: "Update Course Successfully" });
     }catch(err){
         res.status(400).send({ "error is": err.message })
@@ -115,7 +114,7 @@ export const deleteCourse=async (req,res)=>{
 }
 export const getModule=async(req,res)=>{
     try {
-        result = await Module.find({ courseId: req.query.id })
+       const result = await Module.find({ courseId: req.query.id })
         return res.status(200).json({ message: "Get Module Successfully" ,data:result});
     } catch (error) {
         

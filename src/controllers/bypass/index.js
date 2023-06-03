@@ -15,7 +15,8 @@ export const login = async (req, res) => {
                 name:data.name,
                 image:data.image
             }
-             const token = jwt.sign(tempObj, process.env.JWT_SECRET_KEY, { expiresIn: process.env.JWT_EXPIRE })
+            // expiresIn: process.env.JWT_EXPIRE
+             const token = jwt.sign(tempObj, process.env.JWT_SECRET_KEY, {})
             return loginSuccess(res,"Login Success",tempObj,token)
         }
 
